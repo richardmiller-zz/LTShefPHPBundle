@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+
+        {% block stylesheets %}
+            {% stylesheets
+                '@MopaBootstrapBundle/Resources/bootstrap/bootstrap.css'
+                '@LTShefPHPBundle/Resources/public/css/admin.css'
+            %}
+            <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen"/>
+            {% endstylesheets %}
+        {% endblock stylesheets %}
+
+        <title>{% block title %}ShefPHP ImageManagerBundle{% endblock %}</title>
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
+    </head>
+    <body>
+        <div class="topbar">
+            <div class="topbar-inner">
+                <div class="container">
+                    <ul class="nav secondary-nav">
+                        <li>
+                            <a href="{{ path('home') }}">ShefPHP Image Manager</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container main-content">
+            <div class="row">
+                <div class="heading span16">
+                    <div class="page-header">
+                        <h1>{% block heading %}{% endblock %}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="sidebar span4">
+                    <nav>
+                        <ul>
+                            <li><a href="{{ path('home') }}">Home</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="content span12">
+                    {% block content %}
+                    {% endblock content %}
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
